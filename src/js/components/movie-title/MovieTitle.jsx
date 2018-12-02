@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import './movietitle.style.less'
 
 class MovieTitle extends Component {
   render() {
     return (
-      <span>
+      <div className='movie-title'>
         {this.props.title}
-      </span>
+      </div>
     );
   }
 }

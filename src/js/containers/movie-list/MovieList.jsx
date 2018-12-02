@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MovieTile from './../movie/MovieTile.jsx';
+import MovieTile from './../movie-tile/MovieTile.jsx';
 
 class MovieList extends Component {
 

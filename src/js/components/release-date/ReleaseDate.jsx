@@ -5,9 +5,11 @@ import './releasedate.style.less';
 class ReleaseDate extends Component {
   render() {
     return (
-      <Badge className='release-date'>
-        {this.getReleaseYear(this.props.releaseDate)}
-      </Badge>
+      <div className='release-date'>
+        <Badge>
+          {this.getReleaseYear(this.props.releaseDate)}
+        </Badge>
+      </div>
     );
   }
       
