@@ -14,7 +14,7 @@ class MovieTile extends Component {
         <div>
           <MoviePoster url={movieDetails.poster_path}/>
         </div>
-        <div>
+        <div className='title-row'>
           <MovieTitle title={movieDetails.title}/>
           <ReleaseDate releaseDate={movieDetails.release_date}/>
         </div>

@@ -1,0 +1,24 @@
+@import url('../../containers/app/app.style.less');
+
+.sorter {
+  
+  font-weight: 600;
+  
+  .sort-by-date, .sort-by-rating {
+    border: none;
+    font-weight: 600;
+    &.active {
+      background-color: @netflix-white;
+      color: @netflix-red-button;
+    }
+  }
+  
+  display: inline-block;
+  
+  .sorter-buttons {
+    background-color: @netflix-white;
+    display: inline-block;
+    margin-bottom: -11px;
+    margin-left: 20px;
+  }
+}

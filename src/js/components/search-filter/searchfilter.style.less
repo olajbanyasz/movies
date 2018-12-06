@@ -1,0 +1,29 @@
+@import url('../../containers/app/app.style.less');
+
+.search-filter {
+  
+  .search-filter-buttons {
+    display: inline-block;
+    margin-bottom: -7px;
+    margin-left: 20px;
+  }
+  
+  .search-by-title, .search-by-genre {
+    border-radius: 2px;
+    color: @netflix-white;
+    border-color: @netflix-grey-button;
+    background-color: @netflix-grey-button;
+    margin-right: 12px;
+    padding: 2px 25px;
+    &.active {
+      background-color: @netflix-red-button;
+      border-color: @netflix-red-button;
+    }
+    &:hover {
+      color: @netflix-white;
+    }
+  }
+  
+  color: white;
+  display: inline-block;
+}
