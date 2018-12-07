@@ -9,7 +9,7 @@ class SearchFilter extends Component {
       <div className="search-filter">
         <span>SEARCH BY</span>
         <ButtonToolbar className='search-filter-buttons'>
-          <ToggleButtonGroup type="radio" name='searchfilter' defaultValue={'TITLE'}>
+          <ToggleButtonGroup type="radio" name='searchfilter' defaultValue={this.props.searchby}>
             <ToggleButton value={'TITLE'} className='search-by-title'>TITLE</ToggleButton>
             <ToggleButton value={'GENRE'} className='search-by-genre'>GENRE</ToggleButton>
           </ToggleButtonGroup>
