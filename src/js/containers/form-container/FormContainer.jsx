@@ -10,27 +10,30 @@ class FormContainer extends Component {
 
   state = {
     sortby: 'DATE',
-    searchby: 'TITLE'
+    searchby: 'TITLE',
+    movies: this.props.movies
   };
 
   getSorterState = (value) => {
-    console.log('value', value);
-    return value;
+    this.setState({sortby: value}, () => this.props.changeHandler(this.state));
+  };
+
+  getSearchbyState = (value) => {
+    this.setState({searchby: value}, () => this.props.changeHandler(this.state));
   };
 
   render() {
-    const movielist = this.props.movielist;
     return (
       <div>
         <div className='search-container'>
           <SearchField />
           <div className='filter-bar'>
-            <SearchFilter searchby={this.state.searchby}/>
+            <SearchFilter searchby={this.state.searchby} changeHandler={this.getSearchbyState}/>
             <SearchButton />
           </div>
         </div>
         <div className='sort-container'>
-          <MovieCounter resultcounter={movielist.length}/>
+          <MovieCounter resultcounter={this.state.movies.length}/>
           <Sorter sortby={this.state.sortby} changeHandler={this.getSorterState}/>
         </div>
       </div>

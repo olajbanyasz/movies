@@ -4,12 +4,27 @@ import './searchfilter.style.less';
 
 class SearchFilter extends Component {
 
+  state = {
+    searchby: this.props.searchby
+  }
+
+  changeHandler = () => {
+    if (event.target.value && event.target.value !== this.state.searchby) {
+      this.setState({searchby: event.target.value}, () => this.props.changeHandler(this.state.searchby));
+    }
+  };
+
   render () {
     return (
       <div className="search-filter">
         <span>SEARCH BY</span>
         <ButtonToolbar className='search-filter-buttons'>
-          <ToggleButtonGroup type="radio" name='searchfilter' defaultValue={this.props.searchby}>
+          <ToggleButtonGroup
+            type="radio"
+            name='searchfilter'
+            defaultValue={this.state.searchby}
+            onChange={this.changeHandler}
+          >
             <ToggleButton value={'TITLE'} className='search-by-title'>TITLE</ToggleButton>
             <ToggleButton value={'GENRE'} className='search-by-genre'>GENRE</ToggleButton>
           </ToggleButtonGroup>

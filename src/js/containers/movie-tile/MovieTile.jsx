@@ -7,7 +7,7 @@ import './movietile.style.less';
 
 class MovieTile extends Component {
   render() {
-    const movieDetails = this.props.movieDetails;
+    const { movieDetails } = this.props;
     const genres = movieDetails.genres.join(' & ');
     return (
       <div className='movie-tile'>

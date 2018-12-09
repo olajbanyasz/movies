@@ -6,7 +6,7 @@ class MovieList extends Component {
 
   render() {
 
-    if (!this.props.movielist.length) {
+    if (!this.props.movies.length) {
       return (
         <div className='no-films-found'>
           <h1>No films found</h1>
@@ -14,7 +14,7 @@ class MovieList extends Component {
       );
     }
 
-    const movies = this.props.movielist.map((movie) => <MovieTile movieDetails={movie} key={movie.id}/>);
+    const movies = this.props.movies.map((movie) => <MovieTile movieDetails={movie} key={movie.id}/>);
     return (
       <div>
         {movies}

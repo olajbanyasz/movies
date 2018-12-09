@@ -8,15 +8,47 @@ import './app.style.less'
 const movies = require('../../../../__mocks__/movies.js').data;
 
 class App extends Component {
+
+  state = {
+    movies: movies,
+    searchby: 'TITLE',
+    sortby: 'DATE'
+  };
+
+  changeHandler = (state) => {
+    this.setState(state, () => this.sortMovies());
+  }
+
+  sortMovies = () => {
+    const sortby = {
+      'DATE': 'release_date',
+      'RATING': 'vote_average'
+    }[this.state.sortby];
+
+    const prepareData = (data) => {
+      if (sortby === 'release_date') {
+        return data.split('-').join('');
+      }
+      return data
+    };
+
+    return this.state.movies.sort((a,b) => prepareData(a[sortby]) - prepareData(b[sortby]));
+  };
+
   render() {
     return (
       <div className='app'>
         <div>
-          <FormContainer movielist={movies}/>
+          <FormContainer
+            movies={this.state.movies}
+            searchby={this.state.searchby}
+            sortby={this.state.sortby}
+            changeHandler={this.changeHandler}
+          />
         </div>
         <div>
            <ErrorBoundary>
-             <MovieList movielist={movies}/>
+             <MovieList movies={this.sortMovies()}/>
            </ErrorBoundary>
         </div>
         <Footer />

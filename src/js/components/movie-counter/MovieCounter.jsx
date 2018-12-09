@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './moviecounter.style.less';
 
-class MovieCounter extends Component {
+const getCounterText = (result) => `${result} ${result === 1 ? 'movie' : 'movies'} found`;
+
+const MovieCounter = React.memo(function MovieCounter(props) {
+
+  return (
+    <div className='movie-counter'>
+      {getCounterText(props.resultcounter)}
+    </div>
+  );
   
-  getCounterText (result) {
-    return `${result} ${result === 1 ? 'movie' : 'movies'} found`
-  }
-  
-  render() {
-    return (
-      <div className='movie-counter'>
-        {this.getCounterText(this.props.resultcounter)}
-      </div>
-    );
-  }
-}
+});
 
 export default MovieCounter;
