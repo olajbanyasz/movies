@@ -5,12 +5,13 @@ import './sorter.style.less';
 class Sorter extends Component {
 
   state = {
-    sortby: this.props.sortby
+    sortby: null
   };
 
-  changeHandler = () => {
-    if (event.target.value && event.target.value !== this.state.sortby) {
-      this.setState({sortby: event.target.value}, () => this.props.changeHandler(this.state.sortby));
+  changeHandler = (sortby) => {
+    if (sortby !== this.state.sortby) {
+      this.setState({sortby});
+      this.props.changeHandler(sortby);
     }
   };
 
@@ -23,7 +24,7 @@ class Sorter extends Component {
            type="radio"
            name='sorter'
            onChange={this.changeHandler}
-           defaultValue={this.state.sortby}
+           defaultValue={this.props.sortby}
           >
             <ToggleButton value={'DATE'} className='sort-by-date'>release date</ToggleButton>
             <ToggleButton value={'RATING'} className='sort-by-rating'>ratings</ToggleButton>

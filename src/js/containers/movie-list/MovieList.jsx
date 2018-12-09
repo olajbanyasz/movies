@@ -16,7 +16,7 @@ class MovieList extends Component {
 
     const movies = this.props.movies.map((movie) => <MovieTile movieDetails={movie} key={movie.id}/>);
     return (
-      <div>
+      <div className='movie-list'>
         {movies}
       </div>
     );

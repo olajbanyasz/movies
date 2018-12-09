@@ -11,7 +11,6 @@ class FormContainer extends Component {
   state = {
     sortby: 'DATE',
     searchby: 'TITLE',
-    movies: this.props.movies
   };
 
   getSorterState = (value) => {
@@ -33,7 +32,7 @@ class FormContainer extends Component {
           </div>
         </div>
         <div className='sort-container'>
-          <MovieCounter resultcounter={this.state.movies.length}/>
+          <MovieCounter resultcounter={this.props.movies.length}/>
           <Sorter sortby={this.state.sortby} changeHandler={this.getSorterState}/>
         </div>
       </div>

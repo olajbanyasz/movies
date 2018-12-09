@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieList from '../movie-list/MovieList.jsx';
 import FormContainer from '../form-container/FormContainer.jsx';
+import BigMovieTile from '../big-movie-tile/BigMovieTile.jsx';
 import Footer from './../../components/footer/Footer.jsx';
 import ErrorBoundary from './../../components/error-boundary/ErrorBoundary.jsx';
 import './app.style.less'
@@ -45,6 +46,9 @@ class App extends Component {
             sortby={this.state.sortby}
             changeHandler={this.changeHandler}
           />
+        </div>
+        <div>
+          <BigMovieTile movieDetails={this.sortMovies()[0]}></BigMovieTile>
         </div>
         <div>
            <ErrorBoundary>

@@ -5,12 +5,13 @@ import './searchfilter.style.less';
 class SearchFilter extends Component {
 
   state = {
-    searchby: this.props.searchby
+    searchby: null
   }
 
-  changeHandler = () => {
-    if (event.target.value && event.target.value !== this.state.searchby) {
-      this.setState({searchby: event.target.value}, () => this.props.changeHandler(this.state.searchby));
+  changeHandler = (searchby) => {
+    if (searchby !== this.state.searchby) {
+      this.setState({searchby});
+      this.props.changeHandler(searchby);
     }
   };
 
@@ -22,7 +23,7 @@ class SearchFilter extends Component {
           <ToggleButtonGroup
             type="radio"
             name='searchfilter'
-            defaultValue={this.state.searchby}
+            defaultValue={this.props.searchby}
             onChange={this.changeHandler}
           >
             <ToggleButton value={'TITLE'} className='search-by-title'>TITLE</ToggleButton>

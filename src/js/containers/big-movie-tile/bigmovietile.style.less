@@ -1,0 +1,72 @@
+@import url('../../containers/app/app.style.less');
+
+.big-movie-tile {
+  color: @netflix-white;
+  margin: 0;
+  padding: 20px 25px 20px 50px;
+  height: 550px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  
+  &::after {
+    content: "";
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('https://assets.nflxext.com/ffe/siteui/vlv3/f43a7412-3355-4f0a-a9b2-2223aded1657/d5016d1f-ee02-4901-88f5-df1b5f90ea26/HU-en-20181203-popsignuptwoweeks-perspective_alpha__custom.jpg');
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+  
+  .search-button {
+    
+  }
+  
+  .movie-poster-container {
+    .movie-poster {
+      min-width: 280px;
+    }
+    display: inline-block;
+    margin-top: 60px;
+    padding: 10px 40px 10px 10px;
+    width: 350px;
+  }
+
+  .movie-details-container {
+    
+    .search-button {
+      background-color: @netflix-white;
+      border-radius: 2px;
+      color: @netflix-red-button;
+      padding: 5px 50px;
+    }
+    
+    .title-row {
+      margin-top: 60px; 
+    }
+    
+    .ratings-badge {
+      margin-top: 10px;
+      vertical-align: middle;
+    }
+    
+    .duration-and-release {
+      font-weight: 600;
+      .release-date {
+        display: inline-block;
+      }
+    }
+
+    .movie-title {
+      color: @netflix-red-button;
+      font-size: xx-large;
+      padding-top: 10px;
+      vertical-align: middle;
+    }
+    display: inline-block;
+    padding: 0 60px;
+    width: auto;
+  }
+}
