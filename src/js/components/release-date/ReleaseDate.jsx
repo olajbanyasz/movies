@@ -6,7 +6,7 @@ class ReleaseDate extends Component {
   render() {
     return (
       <div className='release-date'>
-        <Badge>
+        <Badge className='release-date-badge'>
           {this.getReleaseYear(this.props.releaseDate)}
         </Badge>
       </div>

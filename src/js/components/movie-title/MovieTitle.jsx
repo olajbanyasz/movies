@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './movietitle.style.less'
+import './movietitle.style.less';
 
 class MovieTitle extends Component {
   render() {

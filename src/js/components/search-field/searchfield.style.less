@@ -1,0 +1,26 @@
+@import url('../../containers/app/app.style.less');
+
+.movie-search-field {
+  background-color: @netflix-black;
+  border: 0px;
+  border-bottom: 2px solid;
+  border-color: @netflix-red;
+  border-radius: 0;
+  color: @netflix-white;
+
+  &:focus {
+    background-color: @netflix-black;
+    border-bottom: 2px solid;
+    border-color: @netflix-red;
+    box-shadow: none;
+    color: @netflix-white;
+  }
+
+  &::placeholder {
+    color: white;
+  }
+}
+
+.movie-search-label {
+  color: white;
+}

@@ -7,14 +7,14 @@ import './movietile.style.less';
 
 class MovieTile extends Component {
   render() {
-    const movieDetails = this.props.movieDetails;
+    const { movieDetails } = this.props;
     const genres = movieDetails.genres.join(' & ');
     return (
       <div className='movie-tile'>
         <div>
           <MoviePoster url={movieDetails.poster_path}/>
         </div>
-        <div>
+        <div className='title-row'>
           <MovieTitle title={movieDetails.title}/>
           <ReleaseDate releaseDate={movieDetails.release_date}/>
         </div>
