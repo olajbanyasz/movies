@@ -19,4 +19,12 @@ describe('SearchFilter', () => {
     component.update();
     expect(component.state().searchby).toBe('TITLE');
   });
+
+  it('should call the changhanler prop on change event', () => {
+    const mockHandler = jest.fn();
+    const component = mount(<SearchFilter searchby={'TITLE'} changeHandler={mockHandler} />);
+    component.find('.search-by-genre input').hostNodes().simulate('change', {target: {value: 'GENRE'}});
+    component.update();
+    expect(component.props().changeHandler).toHaveBeenCalled();
+  });
 });

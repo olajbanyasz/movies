@@ -25,4 +25,22 @@ describe('Sorter', () => {
     component.update();
     expect(component.state().sortby).toBe('DATE');
   });
+
+  it('should call the changhanler prop on change event', () => {
+    const mockHandler = jest.fn();
+    const component = mount(<Sorter sortby={'DATE'} changeHandler={mockHandler} />);
+    component.find('.sort-by-rating input').hostNodes().simulate('change', {target: {value: 'RATING'}});
+    component.update();
+    expect(component.props().changeHandler).toHaveBeenCalled();
+  });
+
+  it('should call the changhanler prop on change event only once', () => {
+    const mockHandler = jest.fn();
+    const component = mount(<Sorter sortby={'DATE'} changeHandler={mockHandler} />);
+    component.find('.sort-by-rating input').hostNodes().simulate('change', {target: {value: 'RATING'}});
+    component.update();
+    component.find('.sort-by-rating input').hostNodes().simulate('change', {target: {value: 'RATING'}});
+    component.update();
+    expect(component.props().changeHandler).toHaveBeenCalledTimes(1);
+  });
 });
