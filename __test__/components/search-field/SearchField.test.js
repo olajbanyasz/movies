@@ -10,8 +10,7 @@ describe('SearchField', () => {
   
   it('should change the state when input changed', () => {
     const component = mount(<SearchField />);
-    //const wrappedInput = component.find('.movie-search-field');
-    const wrappedInput = component.find('input');
+    const wrappedInput = component.find('.movie-search-field').hostNodes();
     wrappedInput.simulate('change', {target: {value: 'input test'}});
     expect(component.state().value).toBe('input test');
   });

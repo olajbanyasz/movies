@@ -11,14 +11,21 @@ const movies = require('../../../../__mocks__/movies.js').data;
 class App extends Component {
 
   state = {
+    hasError: null,
     movies: movies,
     searchby: 'TITLE',
     sortby: 'DATE'
   };
 
+  componentDidCatch(error) {
+    this.setState({
+      hasError: error
+    });
+  }
+
   changeHandler = (state) => {
     this.setState(state, () => this.sortMovies());
-  }
+  };
 
   sortMovies = () => {
     const sortby = {
@@ -51,7 +58,7 @@ class App extends Component {
           <BigMovieTile movieDetails={this.sortMovies()[0]}></BigMovieTile>
         </div>
         <div>
-           <ErrorBoundary>
+           <ErrorBoundary error={this.state.hasError}>
              <MovieList movies={this.sortMovies()}/>
            </ErrorBoundary>
         </div>
