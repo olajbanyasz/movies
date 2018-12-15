@@ -10,7 +10,7 @@ describe('FormContainer', () => {
                             movies={[]}
                             searchby={'TITLE'}
                             sortby={'DATE'}
-                            changeHandler={() => {}}
+                            changeHandler={jest.fn()}
                           />
                         );
     expect(component).toMatchSnapshot();
