@@ -21,10 +21,11 @@ class Sorter extends Component {
         <span>Sort by</span>
         <ButtonToolbar className='sorter-buttons'>
           <ToggleButtonGroup
-           type="radio"
+           type='radio'
            name='sorter'
            onChange={this.changeHandler}
            defaultValue={this.props.sortby}
+           className='sorter-button-group'
           >
             <ToggleButton value={'DATE'} className='sort-by-date'>release date</ToggleButton>
             <ToggleButton value={'RATING'} className='sort-by-rating'>ratings</ToggleButton>

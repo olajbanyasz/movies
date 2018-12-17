@@ -23,7 +23,7 @@ class FormContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className='app-header'>
         <div className='search-container'>
           <SearchField />
           <div className='filter-bar'>

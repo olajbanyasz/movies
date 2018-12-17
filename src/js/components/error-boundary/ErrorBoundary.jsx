@@ -4,19 +4,17 @@ import './errorboundary.style.less';
 class ErrorBoundary extends Component {
   
   state = {
-    error: null,
-    info: ''
+    error: null
   };
 
-  componentDidCatch(error, info) {
+  componentDidCatch(error) {
     this.setState({
-      error: error,
-      info: info
+      error: error
     });
   }
 
   render() {
-    if (this.state.error) {
+    if (this.state.error || this.props.error) {
       return (
         <div className='error-boundary'>
           <h1>Something went wrong!</h1>
