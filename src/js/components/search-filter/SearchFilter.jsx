@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { searchBy } from '../../actions/actionCreator';
+import { bindActionCreators } from 'redux';
 import { ButtonToolbar, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 import './searchfilter.style.less';
 
 class SearchFilter extends Component {
 
-  state = {
-    searchby: null
-  }
-
   changeHandler = (searchby) => {
-    if (searchby !== this.state.searchby) {
-      this.setState({searchby});
-      this.props.changeHandler(searchby);
-    }
+    this.props.searchBy(searchby);
   };
 
   render () {
@@ -35,4 +31,10 @@ class SearchFilter extends Component {
   }
 }
 
-export default SearchFilter;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+      searchBy
+    }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(SearchFilter);

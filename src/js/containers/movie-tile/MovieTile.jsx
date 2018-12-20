@@ -14,11 +14,13 @@ class MovieTile extends Component {
         <div>
           <MoviePoster url={movieDetails.poster_path}/>
         </div>
-        <div className='title-row'>
-          <MovieTitle title={movieDetails.title}/>
-          <ReleaseDate releaseDate={movieDetails.release_date}/>
+        <div className='movie-data-container'>
+          <div className='title-row'>
+            <MovieTitle title={movieDetails.title}/>
+            <ReleaseDate releaseDate={movieDetails.release_date}/>
+          </div>
+          <MovieGenre genres={genres}/>
         </div>
-        <MovieGenre genres={genres}/>
       </div>
     );
   }
