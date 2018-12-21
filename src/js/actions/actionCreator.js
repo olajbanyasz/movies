@@ -28,9 +28,18 @@ export const searchPhraseChange = phrase => ({
   phrase
 });
 
+const createUrl = (getState) => {
+  const baseUrl = 'http://react-cdp-api.herokuapp.com/movies';
+  const searchBy = '&searchBy=' + ((getState().search.searchby === 'TITLE') ? 'title' : 'genre');
+  const phrase = '?search=' + getState().search.phrase;
+  const order = '&sortOrder=desc';
+  const limit = '&limit=12';
+  return baseUrl + phrase + searchBy + order + limit;
+}
+
 export const loadMovies = () => (dispatch, getState) => {
   dispatch({ type: LOAD_MOVIES });
-  const url = 'http://react-cdp-api.herokuapp.com/movies?sortBy=release_date&sortOrder=desc&limit=12';
+  const url = createUrl(getState);
   axios
     .get(url)
     .then( response => {

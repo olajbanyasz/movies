@@ -39,7 +39,7 @@ class App extends Component {
       return data
     };
 
-    return movies.sort((a,b) => prepareData(a[sortbyProperty]) - prepareData(b[sortbyProperty]));
+    return movies.sort((a,b) => prepareData(b[sortbyProperty]) - prepareData(a[sortbyProperty]));
   };
 
   render() {
