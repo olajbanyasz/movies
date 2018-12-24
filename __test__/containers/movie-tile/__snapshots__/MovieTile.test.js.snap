@@ -36,16 +36,200 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "title-row",
+            "class": "movie-data-container",
           },
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "movie-title",
+                "class": "title-row",
               },
               "children": Array [
                 Object {
-                  "data": "The Godfather",
+                  "attribs": Object {
+                    "class": "movie-title",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "The Godfather",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "release-date",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "release-date-badge badge",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "1972",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "release-date",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "release-date-badge badge",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "1972",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "span",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "movie-title",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "The Godfather",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "movie-genre",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Drama & Crime",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "movie-genre",
+              },
+              "children": Array [
+                Object {
+                  "data": "Drama & Crime",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -54,7 +238,276 @@ initialize {
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Object {
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "title-row",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "movie-title",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "The Godfather",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "class": "release-date",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "release-date-badge badge",
+                          },
+                          "children": Array [
+                            Object {
+                              "data": "1972",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  Object {
+                    "attribs": Object {
+                      "class": "release-date",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "release-date-badge badge",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "1972",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "class": "movie-title",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "The Godfather",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {},
+        "x-attribsPrefix": Object {},
+      },
+      Object {
+        "attribs": Object {
+          "class": "movie-data-container",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "title-row",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "movie-title",
+                },
+                "children": Array [
+                  Object {
+                    "data": "The Godfather",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "release-date",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "release-date-badge badge",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "1972",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "span",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              Object {
                 "attribs": Object {
                   "class": "release-date",
                 },
@@ -90,46 +543,22 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
                 "parent": [Circular],
-                "prev": [Circular],
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            Object {
-              "attribs": Object {
-                "class": "release-date",
-              },
-              "children": Array [
-                Object {
+                "prev": Object {
                   "attribs": Object {
-                    "class": "release-date-badge badge",
+                    "class": "movie-title",
                   },
                   "children": Array [
                     Object {
-                      "data": "1972",
+                      "data": "The Godfather",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
                       "type": "text",
                     },
                   ],
-                  "name": "span",
+                  "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
+                  "next": [Circular],
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -140,29 +569,6 @@ initialize {
                     "class": undefined,
                   },
                 },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Object {
-                "attribs": Object {
-                  "class": "movie-title",
-                },
-                "children": Array [
-                  Object {
-                    "data": "The Godfather",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
@@ -170,110 +576,21 @@ initialize {
                 "x-attribsPrefix": Object {
                   "class": undefined,
                 },
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-          ],
-          "name": "div",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": Object {
-            "attribs": Object {
-              "class": "movie-genre",
-            },
-            "children": Array [
-              Object {
-                "data": "Drama & Crime",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": [Circular],
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-            },
-          },
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-          },
-        },
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {},
-        "x-attribsPrefix": Object {},
-      },
-      Object {
-        "attribs": Object {
-          "class": "title-row",
-        },
-        "children": Array [
-          Object {
-            "attribs": Object {
-              "class": "movie-title",
-            },
-            "children": Array [
-              Object {
-                "data": "The Godfather",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
               },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "release-date",
+                "class": "movie-genre",
               },
               "children": Array [
                 Object {
-                  "attribs": Object {
-                    "class": "release-date-badge badge",
-                  },
-                  "children": Array [
-                    Object {
-                      "data": "1972",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "data": "Drama & Crime",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
+                  "type": "text",
                 },
               ],
               "name": "div",
@@ -301,34 +618,15 @@ initialize {
           },
           Object {
             "attribs": Object {
-              "class": "release-date",
+              "class": "movie-genre",
             },
             "children": Array [
               Object {
-                "attribs": Object {
-                  "class": "release-date-badge badge",
-                },
-                "children": Array [
-                  Object {
-                    "data": "1972",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
+                "data": "Drama & Crime",
                 "next": null,
                 "parent": [Circular],
                 "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
+                "type": "text",
               },
             ],
             "name": "div",
@@ -337,15 +635,148 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "movie-title",
+                "class": "title-row",
               },
               "children": Array [
                 Object {
-                  "data": "The Godfather",
-                  "next": null,
+                  "attribs": Object {
+                    "class": "movie-title",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "The Godfather",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "release-date",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "release-date-badge badge",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "1972",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
                   "parent": [Circular],
                   "prev": null,
-                  "type": "text",
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "release-date",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "release-date-badge badge",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "1972",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "span",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "movie-title",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "The Godfather",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
                 },
               ],
               "name": "div",
@@ -372,32 +803,7 @@ initialize {
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Object {
-          "attribs": Object {
-            "class": "movie-genre",
-          },
-          "children": Array [
-            Object {
-              "data": "Drama & Crime",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "div",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-          },
-        },
+        "next": null,
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {},
@@ -432,223 +838,6 @@ initialize {
           "type": "tag",
           "x-attribsNamespace": Object {},
           "x-attribsPrefix": Object {},
-        },
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-      Object {
-        "attribs": Object {
-          "class": "movie-genre",
-        },
-        "children": Array [
-          Object {
-            "data": "Drama & Crime",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "text",
-          },
-        ],
-        "name": "div",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": Object {
-          "attribs": Object {
-            "class": "title-row",
-          },
-          "children": Array [
-            Object {
-              "attribs": Object {
-                "class": "movie-title",
-              },
-              "children": Array [
-                Object {
-                  "data": "The Godfather",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Object {
-                "attribs": Object {
-                  "class": "release-date",
-                },
-                "children": Array [
-                  Object {
-                    "attribs": Object {
-                      "class": "release-date-badge badge",
-                    },
-                    "children": Array [
-                      Object {
-                        "data": "1972",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            Object {
-              "attribs": Object {
-                "class": "release-date",
-              },
-              "children": Array [
-                Object {
-                  "attribs": Object {
-                    "class": "release-date-badge badge",
-                  },
-                  "children": Array [
-                    Object {
-                      "data": "1972",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Object {
-                "attribs": Object {
-                  "class": "movie-title",
-                },
-                "children": Array [
-                  Object {
-                    "data": "The Godfather",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-          ],
-          "name": "div",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": Object {
-            "attribs": Object {},
-            "children": Array [
-              Object {
-                "attribs": Object {
-                  "class": "movie-poster",
-                  "src": "https://image.tmdb.org/t/p/w500/rPdtLWNsZmAtoZl9PK7S2wE3qiS.jpg",
-                },
-                "children": Array [],
-                "name": "img",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                  "src": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                  "src": undefined,
-                },
-              },
-            ],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": [Circular],
-            "parent": [Circular],
-            "prev": null,
-            "type": "tag",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-          },
         },
         "type": "tag",
         "x-attribsNamespace": Object {

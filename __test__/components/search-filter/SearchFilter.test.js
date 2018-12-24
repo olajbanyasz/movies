@@ -1,30 +1,40 @@
 import React from 'react';
 import SearchFilter from '../../../src/js/components/search-filter/SearchFilter.jsx';
 import { render, mount } from 'enzyme';
+import configureStore from 'redux-mock-store';
+const initialState = {
+  search: {
+    searchby: 'TITLE',
+    phrase: ''
+  }
+};
+const mockStore = configureStore();
 
 describe('SearchFilter', () => {
+  let store;
+
+  beforeEach(() => {
+    store = mockStore(initialState)
+  });
+
   it('should rendered correctly', () => {
-    const component = render(<SearchFilter searchby={'TITLE'} changeHandler={jest.fn()} />);
+    const component = render(<SearchFilter searchby={'TITLE'} changeHandler={jest.fn()} store={store}/>);
     expect(component).toMatchSnapshot();
   });
 
-  it('should change the component state when selected option changing', () => {
-    const component = mount(<SearchFilter searchby={'TITLE'} changeHandler={jest.fn()} />);
+  it('the default selected option should get the active class', () => {
+    const mockHandler = jest.fn();
+    const component = mount(<SearchFilter searchby={'TITLE'} searchBy={mockHandler} store={store}/>);
     expect(component.find('.search-by-title').hostNodes().props().className.includes('active')).toBe(true);
-    expect(component.state().searchby).toBe(null);
-    component.find('.search-by-genre input').hostNodes().simulate('change', {target: {value: 'GENRE'}});
-    component.update();
-    expect(component.state().searchby).toBe('GENRE');
-    component.find('.search-by-title input').hostNodes().simulate('change', {target: {value: 'TITLE'}});
-    component.update();
-    expect(component.state().searchby).toBe('TITLE');
+    expect(component.find('.search-by-genre').hostNodes().props().className.includes('active')).toBe(false);
   });
 
-  it('should call the changhanler prop on change event', () => {
+  it('should change "active" selected option', () => {
     const mockHandler = jest.fn();
-    const component = mount(<SearchFilter searchby={'TITLE'} changeHandler={mockHandler} />);
+    const component = mount(<SearchFilter searchby={'TITLE'} searchBy={mockHandler} store={store}/>);
     component.find('.search-by-genre input').hostNodes().simulate('change', {target: {value: 'GENRE'}});
     component.update();
-    expect(component.props().changeHandler).toHaveBeenCalled();
+    expect(component.find('.search-by-title').hostNodes().props().className.includes('active')).toBe(false);
+    expect(component.find('.search-by-genre').hostNodes().props().className.includes('active')).toBe(true);
   });
 });

@@ -9,7 +9,7 @@ import ErrorBoundary from './../../components/error-boundary/ErrorBoundary.jsx';
 import { loadMovies } from '../../actions/actionCreator';
 import './app.style.less'
 
-class App extends Component {
+export class App extends Component {
 
   state = {
     hasError: null
@@ -74,7 +74,7 @@ const mapStateToProps = (state) => {
     movies: state.movies.data,
     searchby: state.search.searchby,
     sortby: state.sortby,
-    isLoading: state.movies.state === 'LOAD_MOVIES'
+    isLoading: state.movies.state === 'LOADING'
   };
 };
 
