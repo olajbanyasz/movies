@@ -28,4 +28,9 @@ describe('MovieList', () => {
     const component = render(<MovieList movies={mockedMovies} />);
     expect(component).toMatchSnapshot();
   });
+  it('should rendered correctly with loding text', () => {
+    const mockedMovies = movies.splice(0, 2);
+    const component = render(<MovieList movies={mockedMovies} isLoading={true}/>);
+    expect(component).toMatchSnapshot();
+  });
 });

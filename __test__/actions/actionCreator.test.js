@@ -67,6 +67,14 @@ describe('actions', () => {
     actions.loadMovies()(mockedDispatch, mockedGetState);
     expect(mockedDispatch).toBe.called;
   });
+  
+  it('should create an action to load movies', () => {
+    const mockedDispatch = jest.fn();
+    defaultState.search.searchby = 'GENRE';
+    const mockedGetState = () => defaultState;
+    actions.loadMovies()(mockedDispatch, mockedGetState);
+    expect(mockedDispatch).toBe.called;
+  });
 });
 
 describe('async actions', () => {
