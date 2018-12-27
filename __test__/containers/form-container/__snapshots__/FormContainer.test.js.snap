@@ -4001,7 +4001,7 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "sort-container",
+            "class": "sort-container hidden",
           },
           "children": Array [
             Object {
@@ -5818,7 +5818,7 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "sort-container",
+          "class": "sort-container hidden",
         },
         "children": Array [
           Object {

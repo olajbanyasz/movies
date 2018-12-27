@@ -1,12 +1,12 @@
 import movies from '../../src/js/reducers/movies';
 
-describe('Sortby Reducer', () => {
+describe('Movies Reducer', () => {
   it('should return the expected state', () => {
     const mockedAction = {
       type: 'LOAD_MOVIES'
     };
     const expectedState = {
-      state: 'LOADING'
+      status: 'LOADING'
     };
     expect(movies({}, mockedAction)).toStrictEqual(expectedState);
   });
@@ -18,7 +18,7 @@ describe('Sortby Reducer', () => {
     };
     const expectedState = {
       data: ['test'],
-      state: 'LOAD_MOVIES_SUCCESS'
+      status: 'LOAD_MOVIES_SUCCESS'
     };
     expect(movies({}, mockedAction)).toStrictEqual(expectedState);
   });
@@ -30,7 +30,7 @@ describe('Sortby Reducer', () => {
     };
     const expectedState = {
       data: [],
-      state: 'LOAD_MOVIES_FAILED'
+      status: 'LOAD_MOVIES_FAILED'
     };
     expect(movies({}, mockedAction)).toStrictEqual(expectedState);
   });

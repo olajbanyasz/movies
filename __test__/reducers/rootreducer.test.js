@@ -14,7 +14,7 @@ describe('Sortby Reducer', () => {
       sortby: 'DATE',
       movies: {
         data: [],
-        state: null
+        status: null
       }
     };
     expect(rootreducer(expectedState, mockedAction)).toStrictEqual(expectedState);

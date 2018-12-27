@@ -8,6 +8,7 @@ import './formcontainer.style.less';
 
 class FormContainer extends Component {
   render() {
+    const sortContainerClassList = this.props.movies.length ? 'sort-container' : 'sort-container hidden';
     return (
       <div className='app-header'>
         <div className='search-container'>
@@ -17,7 +18,7 @@ class FormContainer extends Component {
             <SearchButton />
           </div>
         </div>
-        <div className='sort-container'>
+        <div className={sortContainerClassList}>
           <MovieCounter resultcounter={this.props.movies.length}/>
           <Sorter sortby={this.props.sortby} />
         </div>

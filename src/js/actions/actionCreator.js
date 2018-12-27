@@ -41,7 +41,7 @@ export const loadMoviesFailed = (error) => ({
   error
 });
 
-const createUrl = (getState) => {
+export const createUrl = (getState) => {
   const state = getState();
   const baseUrl = 'http://react-cdp-api.herokuapp.com/movies';
   const searchBy = '&searchBy=' + ((state.search.searchby === 'TITLE') ? 'title' : 'genre');
@@ -54,7 +54,7 @@ const createUrl = (getState) => {
 export const loadMovies = () => (dispatch, getState) => {
   dispatch(loadMoviesRequest());
   const url = createUrl(getState);
-  axios
+  return axios
     .get(url)
     .then( response => dispatch(loadMoviesSuccess(response)))
     .catch( error => dispatch(loadMoviesFailed(error)));

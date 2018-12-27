@@ -6,21 +6,20 @@ function sortby ( state = defaultState.movies, action ) {
     case 'LOAD_MOVIES':
       state = {
         ...state,
-        state: 'LOADING'
+        status: 'LOADING'
       };
       return state;
     case 'LOAD_MOVIES_SUCCESS':
       state = {
         ...state,
         data: action.movies,
-        state: 'LOAD_MOVIES_SUCCESS'
+        status: 'LOAD_MOVIES_SUCCESS'
       };
       return state;
     case 'LOAD_MOVIES_FAILED':
       state = {
-        ...state,
         data: [],
-        state: 'LOAD_MOVIES_FAILED'
+        status: 'LOAD_MOVIES_FAILED'
       };
       return state;
     default: 

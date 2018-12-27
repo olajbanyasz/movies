@@ -12,7 +12,7 @@ const initialState = {
   sortby: 'DATE',
   movies: {
     data: movies,
-    state: 'LOAD_MOVIES_SUCCESS'
+    status: 'LOAD_MOVIES_SUCCESS'
   }
 };
 const mockStore = configureStore();

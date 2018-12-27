@@ -48,7 +48,7 @@ describe('Search Reducer', () => {
       sortby: 'DATE',
       movies: {
         data: [],
-        state: null
+        status: null
       }
     };
     expect(search(expectedState, mockedAction)).toStrictEqual(expectedState);
