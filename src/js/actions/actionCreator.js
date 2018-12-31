@@ -44,7 +44,7 @@ export const loadMoviesFailed = (error) => ({
 export const createUrl = (getState) => {
   const state = getState();
   const baseUrl = 'http://react-cdp-api.herokuapp.com/movies';
-  const searchBy = '&searchBy=' + ((state.search.searchby === 'TITLE') ? 'title' : 'genre');
+  const searchBy = '&searchBy=' + ((state.search.searchby === 'TITLE') ? 'title' : 'genres');
   const phrase = '?search=' + state.search.phrase;
   const order = '&sortOrder=desc';
   const limit = '&limit=12';
