@@ -1,11 +1,12 @@
 import React from 'react';
 import SearchButton from '../../../src/js/components/search-button/SearchButton.jsx';
-import { render, mount } from 'enzyme';
+import { render } from 'enzyme';
 import configureStore from 'redux-mock-store';
 const initialState = {
   search: {
     searchby: 'TITLE',
-    phrase: ''
+    phrase: 'test',
+    lastSearchPhrase: 'test'
   },
   sortby: 'DATE',
   movies: {
@@ -18,7 +19,7 @@ const mockStore = configureStore();
 describe('SearchButton', () => {
   let store;
   
-  beforeEach(() => { 
+  beforeEach(() => {
     store = mockStore(initialState)
   });
   

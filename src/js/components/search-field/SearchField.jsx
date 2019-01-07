@@ -20,7 +20,7 @@ class SearchField extends Component {
           <FormControl
             className = 'movie-search-field'
             type = 'text'
-            placeholder = 'What are you looking for?'
+            placeholder = { this.props.lastSearchPhrase || 'What are you looking for?' }
             onChange = {this.handleChange}
           />
         </FormGroup>
@@ -37,7 +37,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    phrase: state.search.phrase
+    phrase: state.search.phrase,
+    lastSearchPhrase: state.search.lastSearchPhrase
   };
 };
 

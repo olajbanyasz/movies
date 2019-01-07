@@ -1,7 +1,8 @@
 module.exports = {
   search: {
     searchby: 'TITLE',
-    phrase: ''
+    phrase: '',
+    lastSearchPhrase: ''
   },
   sortby: 'DATE',
   movies: {

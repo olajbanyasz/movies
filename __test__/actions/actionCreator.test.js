@@ -1,5 +1,5 @@
 import * as actions from '../../src/js/actions/actionCreator';
-import * as types from '../../src/js/actions/actionTypes';
+import actionTypes from '../../src/js/actions/actionTypes';
 import defaultState from '../../src/js/default-state/';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -17,7 +17,7 @@ describe('actions', () => {
   it('should create an action to sort movies', () => {
     const sortby = 'DATE';
     const expectedAction = {
-      type: types.SORT_MOVIES,
+      type: actionTypes.SORT_MOVIES,
       sortby
     };
     expect(actions.sortMovies('DATE')).toEqual(expectedAction);
@@ -26,15 +26,24 @@ describe('actions', () => {
   it('should create an action to search by movies', () => {
     const searchby = 'TITLE';
     const expectedAction = {
-      type: types.SEARCHBY,
+      type: actionTypes.SEARCHBY,
       searchby
     };
     expect(actions.searchBy('TITLE')).toEqual(expectedAction);
   });
   
+  it('should create an action to persist last search phrase', () => {
+    const lastSearchPhrase = 'TEST';
+    const expectedAction = {
+      type: actionTypes.PERSIST_LAST_SEARCH_PHRASE,
+      lastSearchPhrase: lastSearchPhrase
+    };
+    expect(actions.persistLastSearchPhrase('TEST')).toEqual(expectedAction);
+  });
+
   it('should create an action to load movies', () => {
     const expectedAction = {
-      type: types.LOAD_MOVIES
+      type: actionTypes.LOAD_MOVIES
     };
     expect(actions.loadMoviesRequest()).toEqual(expectedAction);
   });
@@ -46,7 +55,7 @@ describe('actions', () => {
       }
     };
     const expectedAction = {
-      type: types.LOAD_MOVIES_SUCCESS,
+      type: actionTypes.LOAD_MOVIES_SUCCESS,
       movies: []
     };
     expect(actions.loadMoviesSuccess(mockedResponse)).toEqual(expectedAction);
@@ -55,7 +64,7 @@ describe('actions', () => {
   it('should create an action when load movies failed', () => {
     const mockedError = 'error';
     const expectedAction = {
-      type: types.LOAD_MOVIES_FAILED,
+      type: actionTypes.LOAD_MOVIES_FAILED,
       error: mockedError
     };
     expect(actions.loadMoviesFailed(mockedError)).toEqual(expectedAction);

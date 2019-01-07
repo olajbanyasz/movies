@@ -22,15 +22,27 @@ describe('Search Reducer', () => {
     };
     expect(search({}, mockedAction)).toStrictEqual(expectedState);
   });
+
+  it('should return the expected state', () => {
+    const mockedAction = {
+      type: 'PERSIST_LAST_SEARCH_PHRASE',
+      lastSearchPhrase: 'TEST'
+    };
+    const expectedState = {
+      lastSearchPhrase: 'TEST'
+    };
+    expect(search({}, mockedAction)).toStrictEqual(expectedState);
+  });
   
-    it('should return the expected state when default state is undefined', () => {
+  it('should return the expected state when default state is undefined', () => {
     const mockedAction = {
       type: 'SEARCH_PHRASE_CHANGE',
       phrase: 'TEST'
     };
     const expectedState = {
       phrase: 'TEST',
-      searchby: 'TITLE'
+      searchby: 'TITLE',
+      lastSearchPhrase: ''
     };
     expect(search(undefined, mockedAction)).toStrictEqual(expectedState);
   });

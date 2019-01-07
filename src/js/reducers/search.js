@@ -1,20 +1,24 @@
-import { SEARCHBY } from '../actions/actionTypes';
+import SEARCHBY from '../actions/actionTypes';
 import defaultState from '../default-state/';
 
 function search ( state = defaultState.search, action) {
   switch (action.type) {
     case 'SEARCHBY':
-      state = {
+      return {
         ...state,
         searchby: action.searchby
       };
-      return state;
-    case'SEARCH_PHRASE_CHANGE':
-      state = {
+    case 'SEARCH_PHRASE_CHANGE':
+      return {
         ...state,
         phrase: action.phrase
       };
-      return state;
+    case 'PERSIST_LAST_SEARCH_PHRASE': {
+      return {
+        ...state,
+        lastSearchPhrase: action.lastSearchPhrase
+      }
+    }
     default: 
       return state;
   }
