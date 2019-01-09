@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { sortMovies } from '../../actions/actionCreator';
+import { bindActionCreators } from 'redux';
 import { ButtonToolbar, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 import './sorter.style.less';
 
 class Sorter extends Component {
 
-  state = {
-    sortby: null
-  };
-
   changeHandler = (sortby) => {
-    if (sortby !== this.state.sortby) {
-      this.setState({sortby});
-      this.props.changeHandler(sortby);
-    }
+    this.props.sortMovies(sortby);
   };
 
   render () {
@@ -36,4 +32,10 @@ class Sorter extends Component {
   }
 }
 
-export default Sorter;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+      sortMovies
+    }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Sorter);

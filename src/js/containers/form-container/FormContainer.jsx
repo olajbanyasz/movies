@@ -7,33 +7,20 @@ import MovieCounter from './../../components/movie-counter/MovieCounter.jsx';
 import './formcontainer.style.less';
 
 class FormContainer extends Component {
-
-  state = {
-    sortby: 'DATE',
-    searchby: 'TITLE',
-  };
-
-  getSorterState = (value) => {
-    this.setState({sortby: value}, () => this.props.changeHandler(this.state));
-  };
-
-  getSearchbyState = (value) => {
-    this.setState({searchby: value}, () => this.props.changeHandler(this.state));
-  };
-
   render() {
+    const sortContainerClassList = this.props.movies.length ? 'sort-container' : 'sort-container hidden';
     return (
       <div className='app-header'>
         <div className='search-container'>
           <SearchField />
           <div className='filter-bar'>
-            <SearchFilter searchby={this.state.searchby} changeHandler={this.getSearchbyState}/>
+            <SearchFilter searchby={this.props.searchby} />
             <SearchButton />
           </div>
         </div>
-        <div className='sort-container'>
+        <div className={sortContainerClassList}>
           <MovieCounter resultcounter={this.props.movies.length}/>
-          <Sorter sortby={this.state.sortby} changeHandler={this.getSorterState}/>
+          <Sorter sortby={this.props.sortby} />
         </div>
       </div>
     );

@@ -1,34 +1,39 @@
 import React from 'react';
 import FormContainer from '../../../src/js/containers/form-container/FormContainer.jsx';
 import { render, mount } from 'enzyme';
+import configureStore from 'redux-mock-store';
+import { Provider } from "react-redux";
+const movies = require('../../../__mocks__/movies.js').data;
+const initialState = {
+  search: {
+    searchby: 'TITLE',
+    phrase: ''
+  },
+  sortby: 'DATE',
+  movies: {
+    data: movies,
+    state: 'LOAD_MOVIES_SUCCESS'
+  }
+};
+const mockStore = configureStore();
 
 describe('FormContainer', () => {
+  let store;
+  
+  beforeEach(() => { 
+    store = mockStore(initialState)
+  });
+  
   it('should rendered correctly', () => {
     const component = render
-                        (
-                          <FormContainer
-                            movies={[]}
-                            searchby={'TITLE'}
-                            sortby={'DATE'}
-                            changeHandler={jest.fn()}
-                          />
+                        ( <Provider store={store}>
+                            <FormContainer
+                              movies={[]}
+                              searchby={'TITLE'}
+                              sortby={'DATE'}
+                            />
+                          </Provider>
                         );
     expect(component).toMatchSnapshot();
-  });
-
-  it('should call the changhanler prop on change event', () => {
-    const mockHandler = jest.fn();
-    const component = mount
-                        (
-                          <FormContainer
-                            movies={[]}
-                            searchby={'TITLE'}
-                            sortby={'DATE'}
-                            changeHandler={mockHandler}
-                          />
-                        );
-    component.find('.search-by-genre input').hostNodes().simulate('change', {target: {value: 'GENRE'}});
-    component.update();
-    expect(component.props().changeHandler).toHaveBeenCalled();
   });
 });
