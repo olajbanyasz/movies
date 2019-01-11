@@ -7,6 +7,7 @@ module.exports = {
   sortby: 'DATE',
   movies: {
     data: [],
-    status: null
+    status: null,
+    selectedMovie: null
   }
 };

@@ -6,8 +6,9 @@ import MovieGenre from './../../components/movie-genre/MovieGenre.jsx';
 import './movietile.style.less';
 
 class MovieTile extends Component {
+
   render() {
-    const { movieDetails } = this.props;
+    const movieDetails = this.props.movieDetails;
     const genres = movieDetails.genres.join(' & ');
     return (
       <div className='movie-tile'>

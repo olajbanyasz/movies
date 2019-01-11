@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadMovies, persistLastSearchPhrase } from '../../actions/actionCreator';
 import { bindActionCreators } from 'redux';
@@ -14,7 +15,9 @@ class SearchButton extends Component {
   render() {
     return (
       <div className='search-button'>
-        <Button type='button' onClick={this.clickHandler}>SEARCH</Button>
+        <Link to={'/search/Search ' + this.props.phrase}>
+          <Button type='button' onClick={this.clickHandler}>SEARCH</Button>
+        </Link>
       </div>
     );
   }
@@ -27,7 +30,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('state', state)
   return {
     phrase: state.search.phrase,
   };
