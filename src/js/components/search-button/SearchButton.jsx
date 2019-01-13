@@ -15,7 +15,7 @@ class SearchButton extends Component {
   render() {
     return (
       <div className='search-button'>
-        <Link to={'/search/Search ' + this.props.phrase}>
+        <Link to={'/search/' + this.props.phrase}>
           <Button type='button' onClick={this.clickHandler}>SEARCH</Button>
         </Link>
       </div>
