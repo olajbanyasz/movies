@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import MovieList from '../movie-list/MovieList.jsx';
 import FormContainer from '../form-container/FormContainer.jsx';
+import SortContainer from '../sort-container/SortContainer.jsx';
 import BigMovieTile from '../big-movie-tile/BigMovieTile.jsx';
 import Footer from './../../components/footer/Footer.jsx';
 import ErrorBoundary from './../../components/error-boundary/ErrorBoundary.jsx';
@@ -59,11 +60,8 @@ export class App extends Component {
 
                 return (
                   <div>
-                    <FormContainer
-                      movies={this.props.movies}
-                      searchby={this.props.searchby}
-                      sortby={this.props.sortby}
-                    />
+                    <FormContainer searchby={this.props.searchby} />
+                    <SortContainer movies={this.props.movies} sortby={this.props.sortby} />
                     <ErrorBoundary error={this.state.hasError}>
                       <MovieList />
                     </ErrorBoundary>

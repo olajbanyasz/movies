@@ -25,8 +25,6 @@ function movieReducer ( state = defaultState.movies, action ) {
         ...state,
         selectedMovie: action.movie
       };
-    case 'RESET_STORE':
-      return defaultState.movies;
     default: 
       return state;
   }

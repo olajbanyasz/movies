@@ -20,7 +20,10 @@ function search ( state = defaultState.search, action) {
       }
     }
     case 'RESET_STORE':
-      return defaultState.search;
+      return {
+        ...state,
+        lastSearchPhrase: ''
+      };
     default: 
       return state;
   }
