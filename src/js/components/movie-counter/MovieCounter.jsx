@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './moviecounter.style.less';
 
 const getCounterText = (result) => `${result} ${result === 1 ? 'movie' : 'movies'} found`;
@@ -11,4 +12,10 @@ function MovieCounter(props) {
   );
 };
 
-export default MovieCounter;
+const mapStateToProps = (state) => {
+  return {
+    resultcounter: state.movies.data.length
+  };
+};
+
+export default connect(mapStateToProps, null)(MovieCounter);

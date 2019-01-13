@@ -19,11 +19,6 @@ function search ( state = defaultState.search, action) {
         lastSearchPhrase: action.lastSearchPhrase
       }
     }
-    case 'RESET_STORE':
-      return {
-        ...state,
-        lastSearchPhrase: ''
-      };
     default: 
       return state;
   }

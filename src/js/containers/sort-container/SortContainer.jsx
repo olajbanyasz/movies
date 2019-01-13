@@ -7,8 +7,8 @@ class SortContainer extends Component {
   render() {
     return (
       <div className='sort-container'>
-        <MovieCounter resultcounter={this.props.movies.length}/>
-        <Sorter sortby={this.props.sortby} />
+        <MovieCounter />
+        <Sorter />
       </div>
     );
   };
