@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { selectMovie } from '../../actions/actionCreator';
 import MovieTile from './../movie-tile/MovieTile.jsx';
 import NoFilmsFound from './../../components/no-films-found/NoFilmsFound.jsx';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './movielist.style.less';
 
 class MovieList extends Component {
@@ -41,9 +41,11 @@ class MovieList extends Component {
       const sortedMovies = this.sortMovies(this.props.movies, this.props.sortby);
       const movieList = sortedMovies.map((movie) => <Link to={'/film/' + movie.id} key={movie.title}><MovieTile movieDetails={movie}/></Link>);
       return (
-        <div className='movie-list'>
-          {movieList}
-        </div>
+        <Router>
+          <div className='movie-list'>
+            {movieList}
+          </div>
+        </Router>
       );
     }
   };

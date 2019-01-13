@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import MovieTitle from './../../components/movie-title/MovieTitle.jsx';
 import MoviePoster from './../../components/movie-poster/MoviePoster.jsx';
 import MovieGenre from './../../components/movie-genre/MovieGenre.jsx';
@@ -11,7 +11,7 @@ import Duration from './../../components/duration/Duration.jsx';
 import './bigmovietile.style.less';
 
 class BigMovieTile extends Component {
-  
+
   getReleaseYear(date) { 
     return date.split('-')[0];
   };
@@ -27,9 +27,11 @@ class BigMovieTile extends Component {
           </div>
           <div className='movie-details-container'>
             <div className='pull-right'>
-              <Link to={'/'}>
-                <Button className='search-button'>SEARCH</Button>
-              </Link>
+              <Router>
+                <Link to={'/'}>
+                  <Button className='search-button'>SEARCH</Button>
+                </Link> 
+              </Router>
             </div>
             <div className='title-row'>
               <MovieTitle title={movieDetails.title}/>

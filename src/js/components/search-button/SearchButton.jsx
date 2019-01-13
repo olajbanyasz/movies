@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadMovies, persistLastSearchPhrase } from '../../actions/actionCreator';
 import { bindActionCreators } from 'redux';
@@ -15,9 +15,11 @@ class SearchButton extends Component {
   render() {
     return (
       <div className='search-button'>
-        <Link to={'/search/' + this.props.phrase}>
-          <Button type='button' onClick={this.clickHandler}>SEARCH</Button>
-        </Link>
+        <Router>
+          <Link to={'/search/' + this.props.phrase}>
+            <Button type='button' onClick={this.clickHandler}>SEARCH</Button>
+          </Link>
+        </Router>
       </div>
     );
   }
