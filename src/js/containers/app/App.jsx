@@ -53,7 +53,6 @@ export class App extends Component {
                 const searchPhrase = props.match.params.query;
 
                 if (this.props.lastSearchPhrase !== searchPhrase) {
-                  this.props.searchPhraseChange(searchPhrase);
                   this.props.persistLastSearchPhrase(searchPhrase);
                   this.props.loadMovies();
                 }
