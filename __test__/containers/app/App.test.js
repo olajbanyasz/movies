@@ -4,6 +4,7 @@ import { render, mount } from 'enzyme';
 const movies = require('../../../__mocks__/movies.js').data;
 import configureStore from 'redux-mock-store';
 import { Provider } from "react-redux";
+
 const initialState = {
   search: {
     searchby: 'TITLE',
@@ -28,8 +29,8 @@ describe('App', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should render the movie-list', () => {
+  it('should not render the movie-list', () => {
     const component = mount(<Provider store={store}><App /></Provider>);
-    expect(component.find('.movie-list .movie-tile').length).toBe(5);
+    expect(component.find('.movie-list .movie-tile').length).toBe(0);
   });
 });

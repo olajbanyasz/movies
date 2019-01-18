@@ -41,6 +41,15 @@ export const loadMoviesFailed = (error) => ({
   error
 });
 
+export const selectMovie = (movie) => ({
+  type: actionTypes.SELECT_MOVIE,
+  movie
+});
+
+export const resetStore = () => ({
+  type: actionTypes.RESET_STORE,
+});
+
 export const createUrl = (getState) => {
   const state = getState();
   const baseUrl = 'http://react-cdp-api.herokuapp.com/movies';

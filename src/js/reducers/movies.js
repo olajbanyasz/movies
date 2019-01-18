@@ -20,6 +20,11 @@ function movieReducer ( state = defaultState.movies, action ) {
         data: [],
         status: 'LOAD_MOVIES_FAILED'
       };
+    case 'SELECT_MOVIE':
+      return {
+        ...state,
+        selectedMovie: action.movie
+      };
     default: 
       return state;
   }

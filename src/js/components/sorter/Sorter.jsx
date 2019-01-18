@@ -38,4 +38,10 @@ const mapDispatchToProps = (dispatch) => {
     }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Sorter);
+const mapStateToProps = (state) => {
+  return {
+    sortby: state.sortby
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sorter);
