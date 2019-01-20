@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
+    "start": "npm-run-all --parallel open:src open:watch",
+    "open:src": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "open:watch": "nodemon ./server/server.js",
     "test": "jest",
     "coverage": "jest --coverage",
     "cypress": "npx cypress open"
@@ -16,6 +17,8 @@
   "dependencies": {
     "@babel/runtime": "^7.2.0",
     "axios": "^0.18.0",
+    "babel-watch": "^2.0.8",
+    "express": "^4.16.4",
     "less": "^3.9.0",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
@@ -26,7 +29,8 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "serialize-javascript": "^1.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -48,11 +52,14 @@
     "jest": "^23.6.0",
     "less-loader": "^4.1.0",
     "moxios": "^0.4.0",
+    "nodemon": "^1.18.9",
+    "npm-run-all": "^4.1.5",
     "redux-mock-store": "^1.5.3",
     "style-loader": "^0.23.1",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-node-externals": "^1.7.2"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js",
