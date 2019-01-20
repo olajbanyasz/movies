@@ -5,6 +5,7 @@ const { StaticRouter } = require('react-router-dom');
 const configStore = require('../src/js/actions/store');
 const { Provider } = require('react-redux');
 const serialize = require('serialize-javascript');
+import root from 'window-or-global';
 
 function handleRender (req, res) {
   const { store } = configStore();
@@ -37,7 +38,7 @@ function renderPage (template, preloadedState) {
       <body>
         <div id="root"> ${template}</div>
         <script src="../public/main.js"></script>
-        <script>window.__INITIAL_DATA__ = ${serialize(preloadedState)}</script>
+        <script>root.__INITIAL_DATA__ = ${serialize(preloadedState)}</script>
       </body>
     </html>
   `);
