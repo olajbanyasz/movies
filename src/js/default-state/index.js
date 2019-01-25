@@ -8,6 +8,6 @@ module.exports = {
   movies: {
     data: [],
     status: null,
-    selectedMovie: null
+    selectedMovie: ''
   }
 };

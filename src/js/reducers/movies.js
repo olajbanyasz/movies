@@ -1,4 +1,11 @@
-import { LOAD_MOVIES, LOAD_MOVIES_SUCCESS, LOAD_MOVIES_FAILED } from '../actions/actionTypes';
+import {
+  LOAD_MOVIES,
+  LOAD_MOVIES_SUCCESS,
+  LOAD_MOVIES_FAILED,
+  LOAD_MOVIE,
+  LOAD_MOVIE_SUCCESS,
+  LOAD_MOVIE_FAILED
+} from '../actions/actionTypes';
 import defaultState from '../default-state/';
 
 function movieReducer ( state = defaultState.movies, action ) {
@@ -19,6 +26,21 @@ function movieReducer ( state = defaultState.movies, action ) {
         ...state,
         data: [],
         status: 'LOAD_MOVIES_FAILED'
+      };
+    case 'LOAD_MOVIE':
+      return {
+        ...state,
+        selectedMovie: 'LOADING'
+      };
+    case 'LOAD_MOVIE_SUCCESS':
+      return {
+        ...state,
+        selectedMovie: action.movie,
+      };
+    case 'LOAD_MOVIE_FAILED':
+      return {
+        ...state,
+        selectedMovie: 'FAILED'
       };
     case 'SELECT_MOVIE':
       return {

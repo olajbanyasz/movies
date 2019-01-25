@@ -18,6 +18,6 @@ const loggerMiddleware = createLogger();
 
 export default () => {
   const store = createStore(persistedReducer, preloadedState, applyMiddleware(thunk, loggerMiddleware));
-  const persistor = persistStore(store)
+  const persistor = persistStore(store);
   return { store, persistor }
 }

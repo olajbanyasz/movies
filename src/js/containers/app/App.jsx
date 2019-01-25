@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 import MovieList from '../movie-list/MovieList.jsx';
 import FormContainer from '../form-container/FormContainer.jsx';
 import SortContainer from '../sort-container/SortContainer.jsx';
@@ -10,7 +10,7 @@ import Footer from './../../components/footer/Footer.jsx';
 import ErrorBoundary from './../../components/error-boundary/ErrorBoundary.jsx';
 import PageNotFound from './../../components/page-not-found/PageNotFound.jsx';
 import NoFilmsFound from './../../components/no-films-found/NoFilmsFound.jsx';
-import { resetStore, selectMovie, loadMovies, searchPhraseChange, persistLastSearchPhrase } from '../../actions/actionCreator';
+import { resetStore, selectMovie, loadMovies, searchPhraseChange, persistLastSearchPhrase, loadMovie } from '../../actions/actionCreator';
 import './app.style.less'
 
 export class App extends Component {
@@ -70,11 +70,10 @@ export class App extends Component {
               />
 
               <Route path='/film/:id' render={(props) => {
-                const selectedMovie = this.getSelectedMovie(this.props.movies, props.match.params.id);
-                this.props.selectMovie(selectedMovie);
+
                 return (
                   <ErrorBoundary error={this.state.hasError}>
-                    <BigMovieTile />
+                    <BigMovieTile movieId={props.match.params.id}/>
                     <MovieList />
                   </ErrorBoundary>
                 )}}
@@ -96,6 +95,7 @@ const mapDispatchToProps = (dispatch) => {
     resetStore,
     selectMovie,
     loadMovies,
+    loadMovie,
     searchPhraseChange,
     persistLastSearchPhrase
   }, dispatch)
@@ -108,7 +108,8 @@ const mapStateToProps = (state) => {
     sortby: state.sortby,
     isLoading: state.movies.status === 'LOADING',
     lastSearchPhrase: state.search.lastSearchPhrase,
-    phrase: state.search.phrase
+    phrase: state.search.phrase,
+    selectedMovie: state.movies.selectedMovie
   };
 };
 

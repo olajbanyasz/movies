@@ -1,5 +1,6 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
+const baseUrl = 'http://react-cdp-api.herokuapp.com/movies';
 
 export const sortMovies = sortby => ({
   type: actionTypes.SORT_MOVIES,
@@ -27,20 +28,6 @@ export const persistLastSearchPhrase = (lastSearchPhrase) => {
   });
 };
 
-
-export const loadMoviesSuccess = (response) => { 
-  const movies = response.data.data;
-  return ({
-    type: actionTypes.LOAD_MOVIES_SUCCESS,
-    movies
-  });
-};
-
-export const loadMoviesFailed = (error) => ({
-  type: actionTypes.LOAD_MOVIES_FAILED,
-  error
-});
-
 export const selectMovie = (movie) => ({
   type: actionTypes.SELECT_MOVIE,
   movie
@@ -52,7 +39,6 @@ export const resetStore = () => ({
 
 export const createUrl = (getState) => {
   const state = getState();
-  const baseUrl = 'http://react-cdp-api.herokuapp.com/movies';
   const searchBy = '&searchBy=' + ((state.search.searchby === 'TITLE') ? 'title' : 'genres');
   const phrase = '?search=' + state.search.lastSearchPhrase;
   const order = '&sortOrder=desc';
@@ -67,4 +53,37 @@ export const loadMovies = () => (dispatch, getState) => {
     .get(url)
     .then( response => dispatch(loadMoviesSuccess(response)))
     .catch( error => dispatch(loadMoviesFailed(error)));
+};
+
+export const loadMoviesFailed = () => ({
+  type: actionTypes.LOAD_MOVIES_FAILED,
+});
+
+export const loadMovieSuccess = (response) => {
+  const movie = response;
+  return ({
+    type: actionTypes.LOAD_MOVIE_SUCCESS,
+    movie
+  });
+};
+
+export const loadMovieRequest = () => ({
+  type: actionTypes.LOAD_MOVIE
+});
+
+export const loadMovieFailed = () => ({
+  type: actionTypes.LOAD_MOVIE_FAILED,
+});
+
+export const loadMovie = (id) => (dispatch, id) => {
+  dispatch(loadMovieRequest());
+  return axios
+    .get(baseUrl+'/'+ id)
+    .then( response => { if (response.id == id) {
+        dispatch(loadMovieSuccess(response))
+      } else {
+        dispatch(loadMovieFailed())
+      }
+    })
+    .catch( error => dispatch(loadMovieFailed()));
 };

@@ -2,15 +2,22 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import MovieTitle from './../../components/movie-title/MovieTitle.jsx';
 import MoviePoster from './../../components/movie-poster/MoviePoster.jsx';
 import MovieGenre from './../../components/movie-genre/MovieGenre.jsx';
 import Description from './../../components/description/Description.jsx';
 import RatingsBadge from './../../components/ratings-badge/RatingsBadge.jsx';
 import Duration from './../../components/duration/Duration.jsx';
+import NoFilmsFound from './../../components/no-films-found/NoFilmsFound.jsx';
+import { loadMovie } from '../../actions/actionCreator';
 import './bigmovietile.style.less';
 
 class BigMovieTile extends Component {
+
+  componentDidMount () {
+    this.props.loadMovie(this.props.movieId);
+  }
 
   getReleaseYear(date) { 
     return date.split('-')[0];
@@ -18,6 +25,11 @@ class BigMovieTile extends Component {
   
   render() {
     const movieDetails = this.props.movieDetails;
+    if (movieDetails === 'LOADING') {
+      return (<NoFilmsFound />);
+    } else if (movieDetails === 'FAILED') {
+      return (<NoFilmsFound />);
+    }
     const genres = movieDetails.genres.join(' & ');
     return (
       <div>
@@ -65,4 +77,10 @@ const mapStateToProps = (state) => {
 
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
-export default connect(mapStateToProps, null)(BigMovieTile);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    loadMovie
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BigMovieTile);
