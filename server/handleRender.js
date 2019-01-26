@@ -9,22 +9,35 @@ import root from 'window-or-global';
 
 function handleRender (req, res) {
   const { store } = configStore();
-  const context = {};
-  const app = (
-    `<Provider store={store}>
-      <StaticRouter location={req.url} context={context}>
-        <App />
-      </StaticRouter>
-    </Provider>`
-  );
-  const markup = renderToString(app);
+  const branch = matchRoutes(routes, req.url);
+  const promises = branch.map(({ route, match}) => {
+    const { fetchData} = route.component;
+
+    if (!(fetchData instanceof Function)) {
+      return Promise.resolve(null);
+    }
+    return fetchData(store.dispatch, match);
+  });
   
-  if (context.url) {
-    return res.redirect(context.url);
-  }
+  return Promise.all(promises)
+    .then(() => {
+      const context = {};
+      const app = (
+        `<Provider store={store}>
+          <StaticRouter location={req.url} context={context}>
+            <App />
+          </StaticRouter>
+        </Provider>`
+      );
+      const markup = renderToString(app);
   
-  const preloadedState = store.getState();
-  res.send(renderPage(markup, preloadedState));
+      if (context.url) {
+        return res.redirect(context.url);
+      }
+
+      const preloadedState = store.getState();
+      res.send(renderPage(markup, preloadedState));
+  });
 }
 
 function renderPage (template, preloadedState) {
