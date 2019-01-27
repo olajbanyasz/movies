@@ -59,8 +59,7 @@ export const loadMoviesFailed = () => ({
   type: actionTypes.LOAD_MOVIES_FAILED,
 });
 
-export const loadMovieSuccess = (response) => {
-  const movie = response;
+export const loadMovieSuccess = (movie) => {
   return ({
     type: actionTypes.LOAD_MOVIE_SUCCESS,
     movie
