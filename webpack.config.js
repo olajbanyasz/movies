@@ -1,7 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 
-module.exports = {
+const clientConfig = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'public'),
@@ -42,3 +44,38 @@ module.exports = {
     })
   ]
 };
+
+const serverConfig = {
+  entry: './server/server.js',
+  target: 'node',
+  externals: [nodeExternals()],
+  output: {
+    path: path.join(__dirname, 'public'),
+    publicPath: '/',
+    filename: 'server.js',
+  },
+  module: {
+    rules: [
+      { test: /\.(js|jsx)$/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.less$/,
+        loader: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'less-loader'
+        }]
+      }
+    ]
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      __isBrowser__: "false"
+    })
+  ]
+};
+
+module.exports = [clientConfig, serverConfig];
