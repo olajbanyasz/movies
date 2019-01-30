@@ -1,6 +1,6 @@
 import React from 'react';
-import ReleaseDate from '../../../src/js/components/release-date/ReleaseDate';
 import { shallow } from 'enzyme';
+import ReleaseDate from '../../../src/js/components/release-date/ReleaseDate';
 
 describe('ReleaseDate', () => {
   it('should rendered correctly', () => {

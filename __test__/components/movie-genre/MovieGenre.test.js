@@ -1,6 +1,6 @@
 import React from 'react';
-import MovieGenre from '../../../src/js/components/movie-genre/MovieGenre';
 import { shallow } from 'enzyme';
+import MovieGenre from '../../../src/js/components/movie-genre/MovieGenre';
 
 describe('MovieGenre', () => {
   it('should rendered correctly', () => {

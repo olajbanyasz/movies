@@ -1,6 +1,6 @@
 import React from 'react';
-import MoviePoster from '../../../src/js/components/movie-poster/MoviePoster';
 import { shallow } from 'enzyme';
+import MoviePoster from '../../../src/js/components/movie-poster/MoviePoster';
 
 describe('MoviePoster', () => {
   it('should rendered correctly', () => {

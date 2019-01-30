@@ -1,0 +1,6 @@
+/__test__/*
+/node_modules/*
+/cypress/*
+/coverage/*
+/public/*
+/__mocks__/*
