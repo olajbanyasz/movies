@@ -12,6 +12,10 @@ import './bigmovietile.style.less';
 
 class BigMovieTile extends Component {
 
+  componentDidMount () {
+    this.props.loadMovie(this.props.movieId);
+  }
+
   getReleaseYear(date) { 
     return date.split('-')[0];
   };
@@ -63,6 +67,12 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    loadMovie
+  }, dispatch)
+};
+
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
-export default connect(mapStateToProps, null)(BigMovieTile);
+export default connect(mapStateToProps, mapDispatchToProps)(BigMovieTile);

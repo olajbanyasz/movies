@@ -10,7 +10,7 @@ import Footer from './../../components/footer/Footer.jsx';
 import ErrorBoundary from './../../components/error-boundary/ErrorBoundary.jsx';
 import PageNotFound from './../../components/page-not-found/PageNotFound.jsx';
 import NoFilmsFound from './../../components/no-films-found/NoFilmsFound.jsx';
-import { resetStore, selectMovie, loadMovies, searchPhraseChange, persistLastSearchPhrase } from '../../actions/actionCreator';
+import { resetStore, selectMovie, loadMovies, loadMovie, searchPhraseChange, persistLastSearchPhrase } from '../../actions/actionCreator';
 import './app.style.less'
 
 export class App extends Component {
@@ -52,11 +52,12 @@ export class App extends Component {
 
               <Route path='/search/:query' render={(props) => {
                 const searchPhrase = props.match.params.query;
-
-                if (this.props.lastSearchPhrase !== searchPhrase) {
+                this.props.persistLastSearchPhrase(searchPhrase);
+                this.props.loadMovies();
+                /*if (this.props.lastSearchPhrase !== searchPhrase) {
                   this.props.persistLastSearchPhrase(searchPhrase);
                   this.props.loadMovies();
-                }
+                }*/
 
                 return (
                   <div>
@@ -71,7 +72,11 @@ export class App extends Component {
 
               <Route path='/film/:id' render={(props) => {
                 const selectedMovie = this.getSelectedMovie(this.props.movies, props.match.params.id);
-                this.props.selectMovie(selectedMovie);
+                if (selectedMovie.id) {
+                  this.props.selectMovie(selectedMovie);
+                } else {
+                  this.props.loadMovie(props.match.params.id);
+                }
                 return (
                   <ErrorBoundary error={this.state.hasError}>
                     <BigMovieTile />
@@ -96,6 +101,7 @@ const mapDispatchToProps = (dispatch) => {
     resetStore,
     selectMovie,
     loadMovies,
+    loadMovie,
     searchPhraseChange,
     persistLastSearchPhrase
   }, dispatch)

@@ -1,6 +1,34 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
+export const loadMovieSuccess = (movie) => {
+  return ({
+    type: actionTypes.LOAD_MOVIE_SUCCESS,
+    movie
+  });
+};
+
+export const loadMovieRequest = () => ({
+  type: actionTypes.LOAD_MOVIE
+});
+
+export const loadMovieFailed = () => ({
+  type: actionTypes.LOAD_MOVIE_FAILED,
+});
+
+export const loadMovie = (id) => (dispatch, id) => {
+  dispatch(loadMovieRequest());
+  return axios
+    .get(baseUrl+'/'+ id)
+    .then( response => { if (response.id == id) {
+        dispatch(loadMovieSuccess(response))
+      } else {
+        dispatch(loadMovieFailed())
+      }
+    })
+    .catch( error => dispatch(loadMovieFailed()));
+};
+
 export const sortMovies = sortby => ({
   type: actionTypes.SORT_MOVIES,
   sortby,
