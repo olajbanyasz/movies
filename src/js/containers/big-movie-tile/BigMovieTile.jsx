@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { loadOneMovie } from '../../actions/actionCreator';
+
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import MovieTitle from './../../components/movie-title/MovieTitle.jsx';
 import MoviePoster from './../../components/movie-poster/MoviePoster.jsx';
@@ -8,21 +11,23 @@ import MovieGenre from './../../components/movie-genre/MovieGenre.jsx';
 import Description from './../../components/description/Description.jsx';
 import RatingsBadge from './../../components/ratings-badge/RatingsBadge.jsx';
 import Duration from './../../components/duration/Duration.jsx';
+import NoFilmsFound from './../../components/no-films-found/NoFilmsFound.jsx';
+import SelectedMovieSelector from './../../selectors/selected-movie';
 import './bigmovietile.style.less';
 
 class BigMovieTile extends Component {
 
-  componentDidMount () {
-    this.props.loadMovie(this.props.movieId);
-  }
-
   getReleaseYear(date) { 
-    return date.split('-')[0];
+    return date ? date.split('-')[0] : '';
   };
   
   render() {
-    const movieDetails = this.props.movieDetails;
-    const genres = movieDetails.genres.join(' & ');
+    const movieDetails = this.props.movieDetails && this.props.movieDetails[0];
+    if (!movieDetails || !movieDetails.id) {
+      return <NoFilmsFound />
+    }
+
+    const genres = movieDetails.genres ? movieDetails.genres.join(' & ') : '';
     return (
       <div>
         <div className='big-movie-tile'>
@@ -63,13 +68,14 @@ const mapStateToProps = (state) => {
   return {
     searchby: state.search.searchby,
     phrase: state.search.lastSearchPhrase,
-    movieDetails: state.movies.selectedMovie
+    selectedMovie: state.movies.selectedMovie,
+    movieDetails: SelectedMovieSelector(state)
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    loadMovie
+    loadOneMovie
   }, dispatch)
 };
 

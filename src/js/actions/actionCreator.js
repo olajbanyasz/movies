@@ -1,31 +1,29 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
+const baseUrl = 'http://react-cdp-api.herokuapp.com/movies';
 
 export const loadMovieSuccess = (movie) => {
   return ({
-    type: actionTypes.LOAD_MOVIE_SUCCESS,
+    type: actionTypes.LOAD_ONE_MOVIE_SUCCESS,
     movie
   });
 };
 
-export const loadMovieRequest = () => ({
-  type: actionTypes.LOAD_MOVIE
+export const loadMovieRequest = (movieId) => ({
+  type: actionTypes.LOAD_ONE_MOVIE,
+  movieId
 });
 
 export const loadMovieFailed = () => ({
-  type: actionTypes.LOAD_MOVIE_FAILED,
+  type: actionTypes.LOAD_ONE_MOVIE_FAILED,
 });
 
-export const loadMovie = (id) => (dispatch, id) => {
-  dispatch(loadMovieRequest());
+export const loadOneMovie = () => (dispatch, getState) => {
+  const id = getState().movies.selectedMovie;
+  dispatch(loadMovieRequest(id));
   return axios
-    .get(baseUrl+'/'+ id)
-    .then( response => { if (response.id == id) {
-        dispatch(loadMovieSuccess(response))
-      } else {
-        dispatch(loadMovieFailed())
-      }
-    })
+    .get(baseUrl +'/' + id)
+    .then( response => dispatch(loadMovieSuccess(response.data)))
     .catch( error => dispatch(loadMovieFailed()));
 };
 
@@ -67,9 +65,9 @@ export const loadMoviesFailed = error => ({
   error,
 });
 
-export const selectMovie = movie => ({
-  type: actionTypes.SELECT_MOVIE,
-  movie,
+export const selectMovie = movieId => ({
+  type: actionTypes.SELECT_ONE_MOVIE,
+  movieId,
 });
 
 export const resetStore = () => ({
@@ -78,7 +76,6 @@ export const resetStore = () => ({
 
 export const createUrl = (getState) => {
   const state = getState();
-  const baseUrl = 'http://react-cdp-api.herokuapp.com/movies';
   const searchBy = `&searchBy=${(state.search.searchby === 'TITLE') ? 'title' : 'genres'}`;
   const phrase = `?search=${state.search.lastSearchPhrase}`;
   const order = '&sortOrder=desc';

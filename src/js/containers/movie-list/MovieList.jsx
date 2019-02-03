@@ -17,6 +17,7 @@ class MovieList extends Component {
 
     const prepareData = (data) => {
       if (sortbyProperty === 'release_date') {
+        data = data || '';
         return data.split('-').join('');
       }
       return data
@@ -33,27 +34,29 @@ class MovieList extends Component {
           <h1>Loading...</h1>
         </div>
       );
-    } else if (!this.props.movies || !this.props.movies.length) {
+    }
+    if (!this.props.movies.length) {
       return (
         <NoFilmsFound />
       );
-    } else {
-      const sortedMovies = this.sortMovies(this.props.movies, this.props.sortby);
-      const movieList = sortedMovies.map((movie) => <Link to={'/film/' + movie.id} key={movie.title}><MovieTile movieDetails={movie}/></Link>);
-      return (
-        <Router>
-          <div className='movie-list'>
-            {movieList}
-          </div>
-        </Router>
-      );
     }
+    const sortedMovies = this.sortMovies(this.props.movies, this.props.sortby);
+    const movieList = sortedMovies.map((movie, index) => {
+      return (
+          <MovieTile  movieDetails={movie} key={index}/>
+      )});
+    return (
+      <Router>
+        <div className='movie-list'>
+          {movieList}
+        </div>
+      </Router>
+    );
   };
 };
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies.data,
     sortby: state.sortby,
     isLoading: state.movies.status === 'LOADING'
   };

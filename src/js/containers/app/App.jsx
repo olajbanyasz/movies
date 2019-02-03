@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 import MovieList from '../movie-list/MovieList.jsx';
 import FormContainer from '../form-container/FormContainer.jsx';
 import SortContainer from '../sort-container/SortContainer.jsx';
@@ -10,7 +10,7 @@ import Footer from './../../components/footer/Footer.jsx';
 import ErrorBoundary from './../../components/error-boundary/ErrorBoundary.jsx';
 import PageNotFound from './../../components/page-not-found/PageNotFound.jsx';
 import NoFilmsFound from './../../components/no-films-found/NoFilmsFound.jsx';
-import { resetStore, selectMovie, loadMovies, loadMovie, searchPhraseChange, persistLastSearchPhrase } from '../../actions/actionCreator';
+import { resetStore, selectMovie, loadMovies, loadOneMovie, searchPhraseChange, persistLastSearchPhrase } from '../../actions/actionCreator';
 import './app.style.less'
 
 export class App extends Component {
@@ -25,10 +25,6 @@ export class App extends Component {
     });
   };
 
-  getSelectedMovie = (movies, selectedId) => {
-    return movies.filter(movie => movie.id === Number(selectedId))[0];
-  };
-
   render() {
     return (
       <div className='app'>
@@ -38,12 +34,19 @@ export class App extends Component {
 
               <Route exact path='/' render={() => {
                 this.props.resetStore();
+                return <Redirect to='/home' />
+                }}
+              />
+
+              <Route exact path='/home' render={() => {
+                if (this.props.isLoadingSuccess) {
+                  const link = '/search/' + this.props.lastSearchPhrase;
+                  return <Redirect to={link} />
+                }
                 return (
                   <div>
                     <FormContainer
-                      movies={this.props.movies}
                       searchby={this.props.searchby}
-                      sortby={this.props.sortby}
                     />
                     <NoFilmsFound />
                   </div>
@@ -52,36 +55,36 @@ export class App extends Component {
 
               <Route path='/search/:query' render={(props) => {
                 const searchPhrase = props.match.params.query;
-                this.props.persistLastSearchPhrase(searchPhrase);
-                this.props.loadMovies();
-                /*if (this.props.lastSearchPhrase !== searchPhrase) {
+                if (searchPhrase !== this.props.lastSearchPhrase) {
                   this.props.persistLastSearchPhrase(searchPhrase);
                   this.props.loadMovies();
-                }*/
-
+                }
+                if (!this.props.isSelectedMovieLoadFailed && this.props.selectedMovieId) {
+                  this.props.loadOneMovie(this.props.selectedMovieId);
+                }
+                if (this.props.isSelectedMovieLoaded && this.props.selectedMovieId) {
+                  const link = '/film/' + this.props.selectedMovieId;
+                  return <Redirect to={link} />
+                }
                 return (
                   <div>
                     <FormContainer searchby={this.props.searchby} />
-                    <SortContainer movies={this.props.movies} sortby={this.props.sortby} />
-                    <ErrorBoundary error={this.state.hasError}>
-                      <MovieList />
-                    </ErrorBoundary>
+                    <SortContainer sortby={this.props.sortby} />
+                    <MovieList movies={this.props.movies}/>
                   </div>
                 )}}
               />
 
               <Route path='/film/:id' render={(props) => {
-                const selectedMovie = this.getSelectedMovie(this.props.movies, props.match.params.id);
-                if (selectedMovie.id) {
-                  this.props.selectMovie(selectedMovie);
-                } else {
-                  this.props.loadMovie(props.match.params.id);
+                if (props.match.params.id != this.props.selectedMovieId) {
+                  this.props.selectMovie(props.match.params.id);
+                  this.props.loadOneMovie(props.match.params.id);
                 }
                 return (
-                  <ErrorBoundary error={this.state.hasError}>
+                  <div>
                     <BigMovieTile />
-                    <MovieList />
-                  </ErrorBoundary>
+                    <MovieList movies={this.props.movies}/>
+                  </div>
                 )}}
               />
 
@@ -101,7 +104,7 @@ const mapDispatchToProps = (dispatch) => {
     resetStore,
     selectMovie,
     loadMovies,
-    loadMovie,
+    loadOneMovie,
     searchPhraseChange,
     persistLastSearchPhrase
   }, dispatch)
@@ -110,9 +113,14 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     movies: state.movies.data,
+    loadingStatus: state.movies.status,
     searchby: state.search.searchby,
     sortby: state.sortby,
     isLoading: state.movies.status === 'LOADING',
+    isLoadingSuccess: state.movies.status === 'LOAD_MOVIES_SUCCESS',
+    isSelectedMovieLoaded: state.movies.selectedMovieStatus === 'LOAD_ONE_MOVIE_SUCCESS',
+    isSelectedMovieLoadFailed: state.movies.selectedMovieStatus === 'LOAD_ONE_MOVIE_FAILED',
+    selectedMovieId: state.movies.selectedMovie,
     lastSearchPhrase: state.search.lastSearchPhrase,
     phrase: state.search.phrase
   };

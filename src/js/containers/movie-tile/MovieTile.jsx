@@ -3,15 +3,18 @@ import ReleaseDate from './../../components/release-date/ReleaseDate.jsx';
 import MovieTitle from './../../components/movie-title/MovieTitle.jsx';
 import MoviePoster from './../../components/movie-poster/MoviePoster.jsx';
 import MovieGenre from './../../components/movie-genre/MovieGenre.jsx';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { selectMovie } from '../../actions/actionCreator';
 import './movietile.style.less';
 
 class MovieTile extends Component {
 
   render() {
     const movieDetails = this.props.movieDetails;
-    const genres = movieDetails.genres.join(' & ');
+    const genres = movieDetails.genres ? movieDetails.genres.join(' & ') : '';
     return (
-      <div className='movie-tile'>
+      <div className='movie-tile' onClick={() => this.props.selectMovie(movieDetails.id)}>
         <div>
           <MoviePoster url={movieDetails.poster_path}/>
         </div>
@@ -27,4 +30,10 @@ class MovieTile extends Component {
   }
 }
 
-export default MovieTile;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    selectMovie
+  }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(MovieTile);

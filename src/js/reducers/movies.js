@@ -1,28 +1,34 @@
 import {  LOAD_MOVIES,
           LOAD_MOVIES_SUCCESS,
           LOAD_MOVIES_FAILED,
-          LOAD_MOVIE,
-          LOAD_MOVIE_SUCCESS,
-          LOAD_MOVIE_FAILED
+          LOAD_ONE_MOVIE,
+          LOAD_ONE_MOVIE_SUCCESS,
+          LOAD_ONE_MOVIE_FAILED,
+          SELECT_ONE_MOVIE
        } from '../actions/actionTypes';
 import defaultState from '../default-state';
 
 function movieReducer(state = defaultState.movies, action) {
   switch (action.type) {
-    case 'LOAD_MOVIE':
+    case 'RESET_STORE':
+      return defaultState.movies;
+    case 'LOAD_ONE_MOVIE':
       return {
         ...state,
-        selectedMovie: 'LOADING'
+        selectedMovie: action.movieId,
+        selectedMovieStatus: 'LOADING'
       };
-    case 'LOAD_MOVIE_SUCCESS':
+    case 'LOAD_ONE_MOVIE_SUCCESS':
+      state.data.push(action.movie);
       return {
         ...state,
-        selectedMovie: action.movie,
+        data: _.uniqBy(state.data, 'id'),
+        selectedMovieStatus: 'LOAD_ONE_MOVIE_SUCCESS'
       };
-    case 'LOAD_MOVIE_FAILED':
+    case 'LOAD_ONE_MOVIE_FAILED':
       return {
         ...state,
-        selectedMovie: 'FAILED'
+        selectedMovieStatus: 'LOAD_ONE_MOVIE_FAILED'
       };
     case 'LOAD_MOVIES':
       return {
@@ -41,10 +47,10 @@ function movieReducer(state = defaultState.movies, action) {
         data: [],
         status: 'LOAD_MOVIES_FAILED',
       };
-    case 'SELECT_MOVIE':
+    case 'SELECT_ONE_MOVIE':
       return {
         ...state,
-        selectedMovie: action.movie,
+        selectedMovie: action.movieId,
       };
     default:
       return state;

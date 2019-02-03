@@ -3,6 +3,8 @@ import defaultState from '../default-state';
 
 function search(state = defaultState.search, action) {
   switch (action.type) {
+    case 'RESET_STORE':
+      return defaultState.search;
     case 'SEARCHBY':
       return {
         ...state,
