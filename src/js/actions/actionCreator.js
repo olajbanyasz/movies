@@ -23,7 +23,13 @@ export const loadOneMovie = () => (dispatch, getState) => {
   dispatch(loadMovieRequest(id));
   return axios
     .get(baseUrl +'/' + id)
-    .then( response => dispatch(loadMovieSuccess(response.data)))
+    .then( response => {
+      if(_.isEmpty(response.data)) {
+        dispatch(loadMovieFailed());
+      } else {
+        dispatch(loadMovieSuccess(response.data));
+      }
+    })
     .catch( error => dispatch(loadMovieFailed()));
 };
 

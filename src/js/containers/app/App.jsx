@@ -80,6 +80,9 @@ export class App extends Component {
                   this.props.selectMovie(props.match.params.id);
                   this.props.loadOneMovie(props.match.params.id);
                 }
+                if (this.props.isSelectedMovieLoadFailed) {
+                  return <Redirect to='/' />
+                }
                 return (
                   <div>
                     <BigMovieTile />
