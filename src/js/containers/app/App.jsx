@@ -10,6 +10,10 @@ import Footer from './../../components/footer/Footer.jsx';
 import ErrorBoundary from './../../components/error-boundary/ErrorBoundary.jsx';
 import PageNotFound from './../../components/page-not-found/PageNotFound.jsx';
 import NoFilmsFound from './../../components/no-films-found/NoFilmsFound.jsx';
+import IsMoviesLoaded from './../../selectors/is-movies-loaded';
+import IsMovieLoaded from './../../selectors/is-selected-movie-loaded';
+import IsMoviesLoading from './../../selectors/is-movies-loading';
+import IsMovieLoadFailed from './../../selectors/is-selected-movie-load-failed';
 import { resetStore, selectMovie, loadMovies, loadOneMovie, searchPhraseChange, persistLastSearchPhrase } from '../../actions/actionCreator';
 import './app.style.less'
 
@@ -119,10 +123,10 @@ const mapStateToProps = (state) => {
     loadingStatus: state.movies.status,
     searchby: state.search.searchby,
     sortby: state.sortby,
-    isLoading: state.movies.status === 'LOADING',
-    isLoadingSuccess: state.movies.status === 'LOAD_MOVIES_SUCCESS',
-    isSelectedMovieLoaded: state.movies.selectedMovieStatus === 'LOAD_ONE_MOVIE_SUCCESS',
-    isSelectedMovieLoadFailed: state.movies.selectedMovieStatus === 'LOAD_ONE_MOVIE_FAILED',
+    isLoading: IsMoviesLoading(state),
+    isLoadingSuccess: IsMoviesLoaded(state),
+    isSelectedMovieLoaded: IsMovieLoaded(state),
+    isSelectedMovieLoadFailed: IsMovieLoadFailed(state),
     selectedMovieId: state.movies.selectedMovie,
     lastSearchPhrase: state.search.lastSearchPhrase,
     phrase: state.search.phrase
