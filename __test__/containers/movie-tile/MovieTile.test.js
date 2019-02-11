@@ -1,6 +1,7 @@
 import React from 'react';
-import MovieTile from '../../../src/js/containers/movie-tile/MovieTile.jsx';
 import { render } from 'enzyme';
+import MovieTile from '../../../src/js/containers/movie-tile/MovieTile.jsx';
+
 const movies = require('../../../__mocks__/movies.js').data;
 
 describe('MovieTile', () => {

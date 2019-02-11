@@ -1,24 +1,25 @@
 import React from 'react';
-import MovieList from '../../../src/js/containers/movie-list/MovieList.jsx';
 import { render } from 'enzyme';
-const movies = require('../../../__mocks__/movies.js').data;
 import configureStore from 'redux-mock-store';
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
+import MovieList from '../../../src/js/containers/movie-list/MovieList.jsx';
+
+const movies = require('../../../__mocks__/movies.js').data;
+
 const initialState = {
   search: {
     searchby: 'TITLE',
-    phrase: ''
+    phrase: '',
   },
   sortby: 'DATE',
   movies: {
     data: movies,
-    state: 'LOAD_MOVIES_SUCCESS'
-  }
+    state: 'LOAD_MOVIES_SUCCESS',
+  },
 };
 const mockStore = configureStore();
 
 describe('MovieList', () => {
-  
   let store;
   beforeEach(() => {
     store = mockStore(initialState);

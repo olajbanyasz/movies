@@ -6,39 +6,39 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'public'),
     publicPath: '/',
-    filename: 'main.js'
+    filename: 'main.js',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['babel-loader'],
       },
       {
         test: /\.html$/,
-        use: ['html-loader']
+        use: ['html-loader'],
       },
       {
         test: /\.less$/,
         loader: [{
-          loader: 'style-loader'
+          loader: 'style-loader',
         }, {
-          loader: 'css-loader'
+          loader: 'css-loader',
         }, {
-          loader: 'less-loader'
-        }]
-      }
-    ]
+          loader: 'less-loader',
+        }],
+      },
+    ],
   },
   devServer: {
     contentBase: path.join(__dirname, 'public'),
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      fileName: "public/index.html",
-      template: 'src/index.html'
-    })
-  ]
+      fileName: 'public/index.html',
+      template: 'src/index.html',
+    }),
+  ],
 };

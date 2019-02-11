@@ -1,6 +1,6 @@
 import React from 'react';
-import MovieCounter from '../../../src/js/components/movie-counter/MovieCounter';
 import { mount } from 'enzyme';
+import MovieCounter from '../../../src/js/components/movie-counter/MovieCounter';
 
 describe('MovieCounter', () => {
   it('should rendered correctly', () => {

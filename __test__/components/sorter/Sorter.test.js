@@ -1,9 +1,10 @@
 import React from 'react';
-import Sorter from '../../../src/js/components/sorter/Sorter.jsx';
 import { render, mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import Sorter from '../../../src/js/components/sorter/Sorter.jsx';
+
 const initialState = {
-  sortby: 'DATE'
+  sortby: 'DATE',
 };
 const mockStore = configureStore();
 
@@ -11,7 +12,7 @@ describe('Sorter', () => {
   let store;
 
   beforeEach(() => {
-    store = mockStore(initialState)
+    store = mockStore(initialState);
   });
 
   it('should rendered correctly', () => {
@@ -28,7 +29,7 @@ describe('Sorter', () => {
   it('should change "active" selected option', () => {
     const mockHandler = jest.fn();
     const component = mount(<Sorter searchby={'DATE'} store={store}/>);
-    component.find('.sort-by-rating input').hostNodes().simulate('change', {target: {value: 'RATE'}});
+    component.find('.sort-by-rating input').hostNodes().simulate('change', { target: { value: 'RATE' } });
     component.update();
     expect(component.find('.sort-by-date').hostNodes().props().className.includes('active')).toBe(false);
     expect(component.find('.sort-by-rating').hostNodes().props().className.includes('active')).toBe(true);

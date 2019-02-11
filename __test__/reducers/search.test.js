@@ -4,21 +4,21 @@ describe('Search Reducer', () => {
   it('should return the expected state', () => {
     const mockedAction = {
       type: 'SEARCHBY',
-      searchby: 'TEST'
+      searchby: 'TEST',
     };
     const expectedState = {
-      searchby: 'TEST'
+      searchby: 'TEST',
     };
     expect(search({}, mockedAction)).toStrictEqual(expectedState);
   });
-  
+
   it('should return the expected state', () => {
     const mockedAction = {
       type: 'SEARCH_PHRASE_CHANGE',
-      phrase: 'TEST'
+      phrase: 'TEST',
     };
     const expectedState = {
-      phrase: 'TEST'
+      phrase: 'TEST',
     };
     expect(search({}, mockedAction)).toStrictEqual(expectedState);
   });
@@ -26,42 +26,42 @@ describe('Search Reducer', () => {
   it('should return the expected state', () => {
     const mockedAction = {
       type: 'PERSIST_LAST_SEARCH_PHRASE',
-      lastSearchPhrase: 'TEST'
+      lastSearchPhrase: 'TEST',
     };
     const expectedState = {
-      lastSearchPhrase: 'TEST'
+      lastSearchPhrase: 'TEST',
     };
     expect(search({}, mockedAction)).toStrictEqual(expectedState);
   });
-  
+
   it('should return the expected state when default state is undefined', () => {
     const mockedAction = {
       type: 'SEARCH_PHRASE_CHANGE',
-      phrase: 'TEST'
+      phrase: 'TEST',
     };
     const expectedState = {
       phrase: 'TEST',
       searchby: 'TITLE',
-      lastSearchPhrase: ''
+      lastSearchPhrase: '',
     };
     expect(search(undefined, mockedAction)).toStrictEqual(expectedState);
   });
-  
+
   it('should return the default state when action.type is not valid', () => {
     const mockedAction = {
       type: 'NIE_JEST_WLICZONE',
-      phrase: 'TEST'
+      phrase: 'TEST',
     };
     const expectedState = {
       search: {
         searchby: 'TITLE',
-        phrase: ''
+        phrase: '',
       },
       sortby: 'DATE',
       movies: {
         data: [],
-        status: null
-      }
+        status: null,
+      },
     };
     expect(search(expectedState, mockedAction)).toStrictEqual(expectedState);
   });
